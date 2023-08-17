@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" href="{{ path }}assets/css/style.scss">
+	<script type="module" src="{{ path }}assets/js/main.js"></script>
+
+	<meta name="description" content="{{ siteDesc }}">
+	<meta name="keywords" content="{{ siteKwd }}">
+	<link rel="canonical" href="{{ siteCanonical }}">
+
+	<!-- Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="{{ siteName }}">
+	<meta property="og:image" content="{{ siteCanonical }}assets/images/common/ogp.png">
+	<meta property="og:url" content="{{ siteCanonical }}">
+	<meta property="og:site_name" content="{{ siteName }}">
+	<meta property="og:description" content="{{ siteDesc }}">
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="{{ siteName }}">
+	<meta name="twitter:image" content="{{ siteCanonical }}assets/images/common/ogp.png">
+	<meta name="twitter:url" content="{{ siteCanonical }}">
+	<meta name="twitter:description" content="{{ siteDesc }}">
+
+	<!-- icons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ path }}assets/images/icon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ path }}assets/images/icon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ path }}assets/images/icon/favicon-16x16.png">
+	<link rel="manifest" href="{{ path }}assets/images/icon/site.webmanifest">
+	<link rel="mask-icon" href="{{ path }}assets/images/icon/safari-pinned-tab.svg" color="#000">
+	<meta name="msapplication-TileColor" content="#000">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+	{{#if isHome}}
+	<title>{{ siteName }}</title>
+	{{else}}
+	<title>{{ pageTitle }} | {{ siteName }}</title>
+	{{/if}}
+
+</head>
+
+<body id="{{ pageSlug }}" ontu>
+
+	{{#if isHome}}
+		<div class="js-loading l-loading">
+			<div class="l-loading__ico">Loading...</div>
+		</div>
+	{{/if}}
+	<div class="js-nav-overlay l-nav-overlay"></div>
+
+	<header class="l-header">
+		<div class="l-header-info">
+			<{{#if isHome}}h1{{else}}p{{/if}} class="l-header-info__logo">
+				<a href="{{ path }}" class="l-header-info__link u-alpha">制作テンプレ</a>
+			</{{#if isHome}}h1{{else}}p{{/if}}>
+		</div>
+
+		<button class="js-nav-btn l-nav-btn u-sp">
+			<span class="l-nav-btn__line"></span>
+		</button>
+
+		<nav class="js-nav-content l-nav" role="navigation" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+			<ul class="l-nav-list">
+				<li class="l-nav-list__item" itemprop="name">
+					<a href="{{ path }}" class="l-nav-list__link u-alpha" itemprop="URL">トップページ</a>
+				</li>
+				<li class="l-nav-list__item" itemprop="name">
+					<a href="{{ path }}about/" class="l-nav-list__link u-alpha" itemprop="URL">アバウトページ</a>
+				</li>
+				<li class="l-nav-list__item" itemprop="name">
+					<a href="{{ path }}#intro" class="l-nav-list__link u-alpha" itemprop="URL">このテンプレについて</a>
+				</li>
+				<li class="l-nav-list__item" itemprop="name">
+					<a href="{{ path }}#svg" class="l-nav-list__link u-alpha" itemprop="URL">SVGスプラウト</a>
+				</li>
+				<li class="l-nav-list__item" itemprop="name">
+					<a href="{{ path }}#anime" class="l-nav-list__link u-alpha" itemprop="URL">アニメーション</a>
+				</li>
+			</ul>
+		</nav>
+
+	</header>
+
+	{{#unless isHome}}
+	<div class="js-kv l-sub-kv">
+		<h1 class="l-sub-kv__txt">{{mainTxt}}</h1>
+	</div>
+	{{> _breadcrumb }}
+	{{/unless}}
+
+	<div class="l-container">
+		<main>

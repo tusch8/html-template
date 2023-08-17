@@ -1,0 +1,15 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/functions" as f;
+
+/**
+ * l-sub-kv
+ */
+.l-sub-kv {
+	background: #eee;
+	display: grid;
+	place-items: center;
+	height: f.r(200);
+	@include m.m {
+		height: f.r(400);
+	}
+}

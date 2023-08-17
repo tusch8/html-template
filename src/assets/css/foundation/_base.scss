@@ -1,0 +1,37 @@
+@use "./mixin" as m;
+@use "./variable" as v;
+@use "./functions" as f;
+
+html {
+	scroll-behavior: smooth;
+	&:not([lang="ja"]) {
+		word-break: break-word;
+	}
+	@include m.m(-md) {
+		font-size: calc(100vw * v.$base-font-size / v.$sp-design-width);
+	}
+	@include m.m(md-lg) {
+		font-size: calc(100vw * v.$base-font-size / v.$pc-design-width);
+	}
+}
+
+body {
+	min-width: 320px;
+	padding-top: f.r(60);
+	color: rgba(var(--black));
+	font-family: "Noto Sans JP", sans-serif;
+	font-weight: 400;
+	font-size: f.r(14);
+	font-feature-settings: "palt";
+	line-height: 1.8;
+	letter-spacing: 0.05em;
+	-webkit-text-size-adjust: 100%;
+	@include m.m {
+		min-width: auto;
+		padding-top: f.r(120);
+		font-size: f.r(16);
+		@media (hover: none) {
+			-webkit-text-size-adjust: none;
+		}
+	}
+}

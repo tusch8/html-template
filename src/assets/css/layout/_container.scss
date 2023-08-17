@@ -1,0 +1,10 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/functions" as f;
+
+/**
+ * l-container
+ */
+.l-container {
+	position: relative;
+	overflow: hidden;
+}

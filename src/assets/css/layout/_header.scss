@@ -1,0 +1,165 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/functions" as f;
+
+/**
+ * l-header
+ */
+
+.l-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	height: f.r(60);
+	background: #fff;
+	@include m.m {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		position: absolute;
+		height: f.r(120);
+		padding: 0 f.r(30);
+	}
+}
+
+/**
+ * l-header-info
+ */
+.l-header-info {
+	height: 100%;
+	.l-header-info__logo {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	}
+	.l-header-info__link {
+		display: block;
+		font-weight: 700;
+		font-size: f.r(20);
+	}
+	@include m.m {
+		.l-header-info__logo {
+			justify-content: flex-start;
+		}
+		.l-header-info__link {
+			font-size: f.r(30);
+		}
+	}
+}
+
+/**
+ * l-nav-btn
+ */
+.l-nav-btn {
+	position: absolute;
+	top: f.r(10);
+	right: f.r(10);
+	width: f.r(40);
+	height: f.r(40);
+	outline: 1px solid;
+	.l-nav-btn__line {
+		position: absolute;
+		top: calc(50% - f.r(1));
+		left: f.r(5);
+		width: f.r(30);
+		height: f.r(2);
+		background: rgba(var(--black));
+		transition: all 0.3s;
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			width: inherit;
+			height: inherit;
+			background: rgba(var(--black));
+			transition: inherit;
+		}
+		&::before {
+			top: f.r(-10);
+		}
+		&::after {
+			top: f.r(10);
+		}
+	}
+	&.is-open {
+		.l-nav-btn__line {
+			background: transparent;
+			&::before {
+				top: 0;
+				transform: rotate(135deg);
+			}
+			&::after {
+				top: 0;
+				transform: rotate(-135deg);
+			}
+		}
+	}
+}
+
+/**
+ * l-nav
+ */
+.l-nav {
+	@include m.m(-md) {
+		position: absolute;
+		top: f.r(60);
+		transform: translateX(100%);
+		width: 100%;
+		background: #fff;
+		transition: transform 0.3s;
+		&.is-open {
+			transform: translateX(0);
+		}
+	}
+}
+
+/**
+ * l-nav-list
+ */
+
+.l-nav-list {
+	padding: f.r(30) f.r(30) f.r(50);
+	@at-root .l-nav-list__item {
+		& + & {
+			margin-top: f.r(10);
+		}
+	}
+	@include m.m {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		padding: 0;
+		@at-root .l-nav-list__item {
+			& + & {
+				margin-top: 0;
+				margin-left: f.r(30);
+			}
+		}
+	}
+}
+
+/**
+ * l-nav-overlay
+ */
+.l-nav-overlay {
+	opacity: 0;
+	visibility: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 90;
+	width: 100%;
+	height: 100%;
+	background: rgba(#000, 0.5);
+	transition: all 0.3s;
+	&.is-open {
+		opacity: 1;
+		visibility: visible;
+	}
+}

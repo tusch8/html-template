@@ -1,0 +1,148 @@
+/**
+ * reset
+ */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small {
+	font-weight: normal;
+	font-size: 100%;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+html {
+	overflow: auto;
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+img,
+iframe {
+	border: 0;
+	vertical-align: top;
+}
+
+img,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+img {
+	vertical-align: top;
+	backface-visibility: hidden;
+	// image-rendering: -webkit-optimize-contrast;
+}
+
+table {
+	width: 100%;
+	table-layout: fixed;
+	// border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	outline: none;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="submit"],
+button,
+select,
+textarea {
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	background: transparent;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	vertical-align: top;
+	outline: none;
+	appearance: none;
+}
+
+textarea {
+	resize: vertical;
+}
+
+:focus {
+	outline: none;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	display: none;
+}
+
+input[type="submit"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"],
+label,
+button,
+select {
+	cursor: pointer;
+}
+
+input:focus::-webkit-input-placeholder {
+	color: transparent;
+}
+
+input:focus::-moz-placeholder {
+	color: transparent;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	margin: 0;
+	-webkit-appearance: none;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}

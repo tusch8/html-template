@@ -1,0 +1,71 @@
+@use "../../foundation/mixin" as m;
+@use "../../foundation/functions" as f;
+@use "../../foundation/variable" as v;
+
+/**
+ * show hide
+ */
+// SPのみ表示
+.u-sp {
+	@include m.m {
+		display: none !important;
+	}
+}
+
+// PC(タブレット以上)のみ表示
+.u-pc {
+	@include m.m(-md) {
+		display: none !important;
+	}
+}
+
+/**
+ * layout
+ */
+.u-inner {
+	padding-right: f.r(#{v.$sp-gap});
+	padding-left: f.r(#{v.$sp-gap});
+	@include m.m {
+		width: 100%;
+		max-width: f.r(#{v.$pc-max-width});
+		margin: auto;
+		padding-right: f.r(#{v.$pc-gap});
+		padding-left: f.r(#{v.$pc-gap});
+	}
+}
+
+/**
+ * hover
+ */
+.u-alpha {
+	transition: opacity 0.3s;
+	@include m.h() {
+		opacity: 0.7;
+	}
+}
+
+/**
+ * text
+ */
+.u-uc {
+	text-transform: uppercase;
+}
+
+.u-break {
+	display: inline-block;
+}
+
+/**
+ * font
+ */
+.u-bold {
+	font-weight: 700;
+}
+
+.u-black {
+	color: rgba(var(--black));
+}
+
+.u-green {
+	color: rgba(var(--green));
+}

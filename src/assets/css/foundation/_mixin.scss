@@ -1,0 +1,24 @@
+@use "./variable" as v;
+
+/**
+ * breakpoints
+ */
+@mixin m($breakpoint: md) {
+	@media #{map-get(v.$breakpoints, $breakpoint)} {
+		@content;
+	}
+}
+
+/**
+ * hover
+ */
+@mixin h() {
+	&:focus {
+		@content;
+	}
+	@media (hover: hover) and (pointer: fine) {
+		&:hover {
+			@content;
+		}
+	}
+}

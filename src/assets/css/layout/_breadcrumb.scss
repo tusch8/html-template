@@ -1,0 +1,26 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/functions" as f;
+
+/**
+ * l-breadcrumb
+ */
+.l-breadcrumb {
+	display: flex;
+	flex-wrap: wrap;
+	padding: f.r(10) 0;
+	@at-root .l-breadcrumb__item {
+		font-size: f.r(12);
+		& + & {
+			&::before {
+				content: '\FF1E';
+				display: inline-block;
+				padding: 0 f.r(3) 0 f.r(6);
+			}
+		}
+	}
+	@include m.m {
+		.l-breadcrumb__item {
+			font-size: f.r(14);
+		}
+	}
+}

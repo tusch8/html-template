@@ -1,0 +1,19 @@
+@use "./mixin" as m;
+@use "./variable" as v;
+
+/**
+ * rem
+ */
+@function r($px) {
+	@return calc($px * 1rem / v.$base-font-size);
+}
+
+/**
+ * vw
+ */
+@function sv($px) {
+	@return calc($px / v.$sp-design-width * 100vw);
+}
+@function pv($px) {
+	@return calc($px / v.$pc-design-width * 100vw);
+}

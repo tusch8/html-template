@@ -1,0 +1,14 @@
+@use "../../foundation/mixin" as m;
+@use "../../foundation/functions" as f;
+
+/**
+ * c-head01
+ * 見出し
+ */
+.c-head01 {
+	text-align: center;
+	font-weight: 700;
+	font-size: f.r(20);
+	@include m.m {
+	}
+}

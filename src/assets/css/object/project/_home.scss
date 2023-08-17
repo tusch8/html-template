@@ -1,0 +1,109 @@
+@use "../../foundation/mixin" as m;
+@use "../../foundation/functions" as f;
+
+/**
+ * p-kv
+ */
+.p-kv {
+	background: #eee;
+	display: grid;
+	place-items: center;
+	height: f.r(300);
+	@include m.m {
+		height: f.r(800);
+	}
+}
+
+/**
+ * p-intro
+ */
+.p-intro {
+	.p-intro__inner {
+		padding-top: f.r(50);
+		padding-bottom: f.r(50);
+	}
+	.p-intro__lead {
+		font-weight: 700;
+		font-size: f.r(16);
+		text-align: center;
+		margin-bottom: f.r(20);
+	}
+	.p-intro__txt {
+		text-align: center;
+	}
+	@include m.m {
+		.p-svg__inner {
+			padding-top: f.r(100);
+			padding-bottom: f.r(100);
+		}
+	}
+}
+
+/**
+ * p-svg
+ */
+.p-svg {
+	background: #eee;
+	.p-svg__inner {
+		padding-top: f.r(50);
+		padding-bottom: f.r(50);
+	}
+	.p-svg__txt {
+		text-align: center;
+	}
+	.p-svg__ico {
+		width: f.r(30);
+	}
+	@include m.m {
+		.p-svg__inner {
+			padding-top: f.r(100);
+			padding-bottom: f.r(100);
+		}
+	}
+}
+
+/**
+ * p-anime
+ */
+.p-anime {
+	.p-anime__inner {
+		padding-top: f.r(50);
+		padding-bottom: f.r(50);
+	}
+	.p-anime__txt {
+		text-align: center;
+	}
+	@include m.m {
+		.p-anime__inner {
+			padding-top: f.r(100);
+			padding-bottom: f.r(100);
+		}
+	}
+}
+
+/**
+ * p-image
+ */
+.p-image {
+	background: #eee;
+	.p-image__inner {
+		padding-top: f.r(50);
+		padding-bottom: f.r(50);
+	}
+	.p-image__img {
+		width: f.r(500);
+		margin: 0 auto;
+	}
+	.p-image__bg {
+		width: f.r(500);
+		height: f.r(500);
+		margin: 0 auto;
+		background: url(../images/home/bg_home01.jpg) no-repeat center / cover;
+	}
+	@include m.m {
+		.p-image__inner {
+			padding-top: f.r(100);
+			padding-bottom: f.r(100);
+		}
+	}
+}

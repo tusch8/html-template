@@ -1,0 +1,156 @@
+@use "../../foundation/mixin" as m;
+@use "../../foundation/functions" as f;
+
+// フェードイン
+[data-anime="fadeIn"] {
+	opacity: 0;
+	&.is-found {
+		opacity: 1;
+	}
+}
+
+// 下から
+[data-anime="fadeInUp"] {
+	opacity: 0;
+	transform: translateY(30px);
+	&.is-found {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+// 上から
+[data-anime="fadeInDown"] {
+	opacity: 0;
+	transform: translateY(-30px);
+	&.is-found {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+// 左から
+[data-anime="fadeInLeft"] {
+	opacity: 0;
+	transform: translateX(-30px);
+	&.is-found {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+// 右から
+[data-anime="fadeInRight"] {
+	opacity: 0;
+	transform: translateX(30px);
+	&.is-found {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+// ズームイン
+[data-anime="zoomIn"] {
+	opacity: 0;
+	transform: scale(0.5, 0.5);
+	&.is-found {
+		opacity: 1;
+		transform: scale(1, 1);
+	}
+}
+
+// ぼかしから
+[data-anime="blurIn"] {
+	opacity: 0;
+	filter: blur(10px);
+	&.is-found {
+		opacity: 1;
+		filter: blur(0);
+	}
+}
+
+// 背景をスライド
+[data-anime="bgSlide"] {
+	position: relative;
+	width: max-content;
+	> span {
+		opacity: 0;
+		transition-delay: 0.5s; // 背景のアニメーションの半分の時間にする
+	}
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		height: 100%;
+		background-color: currentColor;
+	}
+	&.is-found {
+		> span {
+			opacity: 1;
+		}
+		&::before {
+			animation: bgSlide 1s ease 0s 1 normal forwards;
+		}
+	}
+}
+
+@keyframes bgSlide {
+	0% {
+		left: 0;
+		width: 0;
+	}
+	49.99% {
+		left: 0;
+		width: 100%;
+	}
+	50% {
+		right: 0;
+		left: auto;
+		width: 100%;
+	}
+	100% {
+		right: 0;
+		left: auto;
+		width: 0;
+	}
+}
+
+// 1文字ずつフェードイン
+[data-anime="fadeInText"] {
+	> span {
+		opacity: 0;
+		transition: opacity 0.6s;
+	}
+	&.is-found {
+		> span {
+			opacity: 1;
+		}
+		@for $i from 1 through 30 {
+			$j: $i * 0.07 - 0.07;
+			> span:nth-of-type(#{$i}) {
+				transition-delay: $j + s;
+			}
+		}
+	}
+}
+
+// 時間、ディレイ
+[data-anime] {
+	transition-property: opacity, transform, filter;
+	transition-duration: 0.6s; // 初期値
+	@for $i from 1 through 30 {
+		$j: $i * 0.1;
+		&[data-anime-duration="#{$j}"] {
+			transition-duration: $j + s;
+		}
+		&[data-anime-delay="#{$j}"] {
+			transition-delay: $j + s;
+		}
+	}
+}
+
+@include m.m(-md) {
+	.js-anime[data-anime] {
+		transition-delay: 0s;
+	}
+}

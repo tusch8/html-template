@@ -1,0 +1,31 @@
+$base-font-size: 16;
+$sp-gap: 15;
+$pc-gap: 30;
+$sp-design-width: 375; // SPデザインの幅
+$pc-width: 1100; // カラムの幅
+$pc-design-width: 1366; // pcデザインの幅
+$pc-max-width: $pc-width + $pc-gap * 2;
+
+:root {
+	--vh: ;
+
+	--black: 0,0,0;
+	--gray: 204,204,204; // #ccc
+	--green: 0,152,68; // #009844;
+}
+
+$breakpoints: (
+	"-xs": "screen and (max-width: 374px)", // 小スマホ
+	"xs": "screen and (min-width: 375px)",
+	"sm": "screen and (min-width: 641px)",
+	"-md": "screen and (max-width: 767px)", // iPad未満
+	"md": "screen and (min-width: 768px)", // iPad以上
+	"md-lg": "screen and (min-width: 768px) and (max-width: #{$pc-max-width - 1}px)", // iPad以上～カラム未満
+	"-lg": "screen and (max-width: #{$pc-max-width - 1}px)", // カラム未満
+	"lg": "screen and (min-width: #{$pc-max-width}px)", // カラム以上
+	"md-xl": "screen and (min-width: 768px) and (max-width: 1365px)", // iPad以上～ノートPC未満
+	"-xl": "screen and (max-width: 1365px)",
+	"xl": "screen and (min-width: 1366px)", // ノートPC
+	"-xxl": "screen and max-width: 1919px)",
+	"xxl": "screen and (min-width: 1920px)", // デスクトップPC
+) !default;

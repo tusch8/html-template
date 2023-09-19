@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
 
 	<link rel="stylesheet" href="{{ path }}assets/css/style.scss">
 	<script type="module" src="{{ path }}assets/js/main.js"></script>
@@ -27,7 +27,7 @@
 	<meta name="twitter:url" content="{{ siteCanonical }}">
 	<meta name="twitter:description" content="{{ siteDesc }}">
 
-	<!-- icons -->
+	<!-- Icons -->
 	<link rel="apple-touch-icon" sizes="180x180" href="{{ path }}assets/images/icon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="{{ path }}assets/images/icon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="{{ path }}assets/images/icon/favicon-16x16.png">
@@ -49,7 +49,7 @@
 
 </head>
 
-<body id="{{ pageSlug }}" ontu>
+<body id="{{ pageSlug }}" ontouchstart="">
 
 	{{#if isHome}}
 		<div class="js-loading l-loading">
@@ -59,32 +59,30 @@
 	<div class="js-nav-overlay l-nav-overlay"></div>
 
 	<header class="l-header">
-		<div class="l-header-info">
-			<{{#if isHome}}h1{{else}}p{{/if}} class="l-header-info__logo">
-				<a href="{{ path }}" class="l-header-info__link u-alpha">制作テンプレ</a>
-			</{{#if isHome}}h1{{else}}p{{/if}}>
-		</div>
+		<{{#if isHome}}h1{{else}}p{{/if}} class="l-header__logo">
+			<a href="{{ path }}" class="l-header__logo-link u-alpha">制作テンプレ</a>
+		</{{#if isHome}}h1{{else}}p{{/if}}>
 
 		<button class="js-nav-btn l-nav-btn u-sp">
 			<span class="l-nav-btn__line"></span>
 		</button>
 
 		<nav class="js-nav-content l-nav" role="navigation" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
-			<ul class="l-nav-list">
-				<li class="l-nav-list__item" itemprop="name">
-					<a href="{{ path }}" class="l-nav-list__link u-alpha" itemprop="URL">トップページ</a>
+			<ul class="l-nav__list">
+				<li class="l-nav__list-item" itemprop="name">
+					<a href="{{ path }}" class="l-nav__list-link u-alpha" itemprop="URL">トップページ</a>
 				</li>
-				<li class="l-nav-list__item" itemprop="name">
-					<a href="{{ path }}about/" class="l-nav-list__link u-alpha" itemprop="URL">アバウトページ</a>
+				<li class="l-nav__list-item" itemprop="name">
+					<a href="{{ path }}about/" class="l-nav__list-link u-alpha" itemprop="URL">アバウトページ</a>
 				</li>
-				<li class="l-nav-list__item" itemprop="name">
-					<a href="{{ path }}#intro" class="l-nav-list__link u-alpha" itemprop="URL">このテンプレについて</a>
+				<li class="l-nav__list-item" itemprop="name">
+					<a href="{{ path }}#intro" class="l-nav__list-link u-alpha" itemprop="URL">このテンプレについて</a>
 				</li>
-				<li class="l-nav-list__item" itemprop="name">
-					<a href="{{ path }}#svg" class="l-nav-list__link u-alpha" itemprop="URL">SVGスプラウト</a>
+				<li class="l-nav__list-item" itemprop="name">
+					<a href="{{ path }}#svg" class="l-nav__list-link u-alpha" itemprop="URL">SVGスプラウト</a>
 				</li>
-				<li class="l-nav-list__item" itemprop="name">
-					<a href="{{ path }}#anime" class="l-nav-list__link u-alpha" itemprop="URL">アニメーション</a>
+				<li class="l-nav__list-item" itemprop="name">
+					<a href="{{ path }}#anime" class="l-nav__list-link u-alpha" itemprop="URL">アニメーション</a>
 				</li>
 			</ul>
 		</nav>

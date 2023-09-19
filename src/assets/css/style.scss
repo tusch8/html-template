@@ -1,35 +1,25 @@
-/**
- * Foundation
- */
 @use "foundation/_reset";
 @use "foundation/_base";
 
-/**
- * Layout
- */
+// Layout
+@use "layout/_header";
+@use "layout/_footer";
+@use "layout/_loading";
 @use "layout/_breadcrumb";
 @use "layout/_container";
-@use "layout/_footer";
-@use "layout/_header";
-@use "layout/_loading";
-@use "layout/_pagetop";
 @use "layout/_sub-kv";
+@use "layout/_pagetop";
 
-/**
- * Component
- */
+
+// Component
 @use "object/components/_animation";
 @use "object/components/_ico";
 @use "object/components/_head";
 @use "object/components/_btn";
 
-/**
- * Utility
- */
+// Utility
 @use "object/utility/_utility";
 
-/**
- * Project
- */
+// Project
 @use "object/project/_home";
 @use "object/project/_about";

@@ -11,7 +11,7 @@ html {
 		font-size: calc(100vw * v.$base-font-size / v.$sp-design-width);
 	}
 	@include m.m(md-lg) {
-		font-size: calc(100vw * v.$base-font-size / v.$pc-design-width);
+		font-size: calc(100vw * v.$base-font-size / v.$pc-max-width);
 	}
 }
 

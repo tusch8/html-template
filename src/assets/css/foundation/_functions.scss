@@ -1,19 +1,17 @@
 @use "./mixin" as m;
 @use "./variable" as v;
 
-/**
- * rem
- */
+// rem計算
 @function r($px) {
 	@return calc($px * 1rem / v.$base-font-size);
 }
 
-/**
- * vw
- */
+// vw計算(SP)
 @function sv($px) {
 	@return calc($px / v.$sp-design-width * 100vw);
 }
+
+// vw計算(PC)
 @function pv($px) {
 	@return calc($px / v.$pc-design-width * 100vw);
 }

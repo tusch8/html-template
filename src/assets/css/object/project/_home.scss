@@ -40,10 +40,33 @@
 }
 
 /**
+ * p-inner
+ */
+.p-inner {
+	background: #eee;
+	.p-inner__inner {
+		padding-top: f.r(50);
+		padding-bottom: f.r(50);
+		background-color: #fcfcfc;
+	}
+	.p-inner__txt1 {
+		font-size: f.r(20);
+	}
+	.p-inner__txt2 {
+		font-size: 20px;
+	}
+	@include m.m {
+		.p-inner__inner {
+			padding-top: f.r(100);
+			padding-bottom: f.r(100);
+		}
+	}
+}
+
+/**
  * p-svg
  */
 .p-svg {
-	background: #eee;
 	.p-svg__inner {
 		padding-top: f.r(50);
 		padding-bottom: f.r(50);
@@ -66,6 +89,7 @@
  * p-anime
  */
 .p-anime {
+	background: #eee;
 	.p-anime__inner {
 		padding-top: f.r(50);
 		padding-bottom: f.r(50);
@@ -85,7 +109,6 @@
  * p-image
  */
 .p-image {
-	background: #eee;
 	.p-image__inner {
 		padding-top: f.r(50);
 		padding-bottom: f.r(50);

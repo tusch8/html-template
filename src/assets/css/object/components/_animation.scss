@@ -12,40 +12,40 @@
 // 下から
 [data-anime="fadeInUp"] {
 	opacity: 0;
-	transform: translateY(30px);
+	translate: 0 30px;
 	&.is-found {
 		opacity: 1;
-		transform: translateY(0);
+		translate: 0;
 	}
 }
 
 // 上から
 [data-anime="fadeInDown"] {
 	opacity: 0;
-	transform: translateY(-30px);
+	translate: 0 -30px;
 	&.is-found {
 		opacity: 1;
-		transform: translateY(0);
+		translate: 0;
 	}
 }
 
 // 左から
 [data-anime="fadeInLeft"] {
 	opacity: 0;
-	transform: translateX(-30px);
+	translate: -30px 0;
 	&.is-found {
 		opacity: 1;
-		transform: translateX(0);
+		translate: 0;
 	}
 }
 
 // 右から
 [data-anime="fadeInRight"] {
 	opacity: 0;
-	transform: translateX(30px);
+	translate: 30px 0;
 	&.is-found {
 		opacity: 1;
-		transform: translateX(0);
+		translate: 0;
 	}
 }
 
@@ -136,7 +136,7 @@
 
 // 時間、ディレイ
 [data-anime] {
-	transition-property: opacity, transform, filter;
+	transition-property: opacity, translate, filter;
 	transition-duration: 0.6s; // 初期値
 	@for $i from 1 through 30 {
 		$j: $i * 0.1;

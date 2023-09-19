@@ -8,44 +8,22 @@
 	position: relative;
 	background: rgba(var(--black));
 	color: #fff;
-	&__inner {
+	.l-footer__inner {
 		padding-top: f.r(30);
 		padding-bottom: f.r(30);
 		text-align: center;
 	}
+	.l-footer__copyright {
+		margin-top: f.r(20);
+		font-size: f.r(10);
+	}
 	@include m.m {
-		&__inner {
+		.l-footer__inner {
 			padding-top: f.r(50);
 			padding-bottom: f.r(50);
 			text-align: center;
 		}
-	}
-}
-
-/**
- * l-footer-info
- */
-.l-footer-info {
-	.l-footer-info__logo {
-	}
-	@include m.m {
-		.l-footer-info__logo {
-
-		}
-	}
-}
-
-/**
- * l-footer-cr
- */
-.l-footer-cr {
-	text-align: center;
-	padding-bottom: f.r(10);
-	.l-footer-cr__txt {
-		font-size: f.r(10);
-	}
-	@include m.m {
-		.l-footer-cr__txt {
+		.l-footer__copyright {
 			font-size: f.r(12);
 		}
 	}

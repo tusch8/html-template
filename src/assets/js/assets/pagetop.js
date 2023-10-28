@@ -1,8 +1,5 @@
 export default () => {
 
-	/**
-	* Page Top
-	*/
 	const pagetop = document.querySelector('.js-pagetop');
 	const kv = document.querySelector('.js-kv');
 	const footer = document.querySelector('.js-footer');

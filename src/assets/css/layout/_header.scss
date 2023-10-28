@@ -80,11 +80,11 @@
 			background: transparent;
 			&::before {
 				top: 0;
-				transform: rotate(135deg);
+				rotate: 135deg;
 			}
 			&::after {
 				top: 0;
-				transform: rotate(-135deg);
+				rotate: -135deg;
 			}
 		}
 	}
@@ -105,12 +105,12 @@
 	@include m.m(-md) {
 		position: absolute;
 		top: f.r(60);
-		transform: translateX(100%);
+		translate: 100%;
 		width: 100%;
 		background: #fff;
 		transition: transform 0.3s;
 		&.is-open {
-			transform: translateX(0);
+			translate: 0;
 		}
 	}
 	@include m.m {

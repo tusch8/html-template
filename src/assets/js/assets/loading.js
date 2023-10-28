@@ -1,8 +1,5 @@
 export default () => {
 
-	/**
-	* Loading
-	*/
 	const html = document.documentElement;
 	const body = document.body;
 	const loadingItem = document.querySelector('.js-loading');

@@ -1,8 +1,5 @@
 export default () => {
 
-	/**
-	* Nav
-	*/
 	const navBtn = document.querySelector('.js-nav-btn');
 	const navCon = document.querySelector('.js-nav-content');
 	const navOverlay = document.querySelector('.js-nav-overlay');

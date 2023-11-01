@@ -2,8 +2,9 @@ export default () => {
 
 	const targets = document.querySelectorAll('.js-anime'); // 監視対象
 	const foundClass = "is-found"; // 画面内に入ったとき、アニメーションさせるアイテムにつけるクラス
+	const body = document.body;
 
-	if (!targets.length) {
+	if (!targets.length || body.classList.contains('is-found')) {
 		return;
 	}
 
@@ -52,19 +53,6 @@ export default () => {
 		observer.observe(target);
 	});
 
-	// テキストを1文字ずつspanで囲む関数
-	const splitTextFunc = () => {
-		const splitTexts = document.querySelectorAll('.js-split-text');
-
-		if (!splitTexts.length) {
-			return;
-		}
-
-		splitTexts.forEach(splitText => {
-			const textArray = splitText.textContent.split(''); // 1文字ずつ配列にする
-			const wrappedText = textArray.map(text => `<span>${text}</span>`).join(''); // spanで囲んで再度くっつける
-			splitText.innerHTML = wrappedText; // 元のテキストをspanで囲んだテキストに置き換える
-		})
-	}
-	splitTextFunc();
+	// 実行済みか判定するためにbodyにクラスつける
+	body.classList.add('is-found');
 }

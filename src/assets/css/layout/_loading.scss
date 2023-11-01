@@ -15,7 +15,7 @@
 // 	height: 100vh;
 // 	background: #fff;
 // 	font-size: f.r(10);
-// 	transition: all .3s;
+// 	transition: all 0.3s;
 // 	&.is-loaded {
 // 		opacity: 0;
 // 		visibility: hidden;
@@ -77,7 +77,7 @@
 	height: 100vh;
 	height: 100svh;
 	background: #000;
-	transition: all 0.6s;
+	transition: all 0.3s;
 	font-size: f.r(10);
 	&.is-loaded {
 		opacity: 0;

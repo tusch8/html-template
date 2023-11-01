@@ -1,32 +1,34 @@
-export default () => {
+const html = document.documentElement;
+const body = document.body;
+const loadingEl = document.querySelector('.js-loading');
 
-	const html = document.documentElement;
-	const body = document.body;
-	const loadingItem = document.querySelector('.js-loading');
-
-	if (!loadingItem) {
+/**
+ * ローディング画面を表示時に背景を固定する関数
+ */
+export const LoadingSet = () => {
+	if (!loadingEl) {
 		return;
 	}
 
 	// ローディング中は画面固定
 	html.style.overflow = 'hidden';
 	body.style.overflow = 'hidden';
+}
 
-	const loaded = () => {
-		if (!loadingItem) {
-			return;
-		}
-		loadingItem.classList.add('is-loaded');
-		html.style.overflow = null;
-		body.style.overflow = null;
-		setTimeout(() => {
-			loadingItem.remove();
-		}, 1000);
-	};
+/**
+ * ローディング画面を非表示にする関数
+ */
+export const LoadingHide = () => {
 
-	window.onload = () => {
-		setTimeout(loaded, 500);
+	if (!loadingEl || loadingEl.classList.contains('is-loaded')) {
+		return;
 	}
 
-	setTimeout(loaded, 5000); // 読み込みが遅すぎるときの最大時間
+	loadingEl.classList.add('is-loaded');
+	html.style.overflow = null;
+	body.style.overflow = null;
+	setTimeout(() => {
+		loadingEl.remove();
+	}, 1000);
+
 }

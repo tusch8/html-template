@@ -35,3 +35,20 @@ body {
 		}
 	}
 }
+
+/**
+ * show hide
+ */
+// SPのみ表示
+.sp {
+	@include m.m {
+		display: none !important;
+	}
+}
+
+// PC(タブレット以上)のみ表示
+.pc {
+	@include m.m(-md) {
+		display: none !important;
+	}
+}

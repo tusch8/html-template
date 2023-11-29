@@ -3,23 +3,6 @@
 @use "../../foundation/variable" as v;
 
 /**
- * show hide
- */
-// SPのみ表示
-.u-sp {
-	@include m.m {
-		display: none !important;
-	}
-}
-
-// PC(タブレット以上)のみ表示
-.u-pc {
-	@include m.m(-md) {
-		display: none !important;
-	}
-}
-
-/**
  * layout
  */
 .u-inner {

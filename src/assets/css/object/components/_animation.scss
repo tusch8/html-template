@@ -52,10 +52,10 @@
 // ズームイン
 [data-anime="zoomIn"] {
 	opacity: 0;
-	transform: scale(0.5, 0.5);
+	scale: 0.5;
 	&.is-found {
 		opacity: 1;
-		transform: scale(1, 1);
+		scale: 1;
 	}
 }
 
@@ -136,7 +136,7 @@
 
 // 時間、ディレイ
 [data-anime] {
-	transition-property: opacity, translate, filter;
+	transition-property: opacity, translate, filter, scale;
 	transition-duration: 0.6s; // 初期値
 	@for $i from 1 through 30 {
 		$j: $i * 0.1;

@@ -21,10 +21,8 @@
 		display: block;
 		width: f.r(40);
 		height: f.r(40);
-		overflow: hidden;
 		border: 1px solid;
 		border-radius: 50%;
-		text-indent: -9999em;
 		&::before {
 			content: '';
 			position: absolute;

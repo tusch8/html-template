@@ -32,7 +32,6 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="{{ path }}assets/images/icon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="{{ path }}assets/images/icon/favicon-16x16.png">
 	<link rel="manifest" href="{{ path }}assets/images/icon/site.webmanifest">
-	<link rel="mask-icon" href="{{ path }}assets/images/icon/safari-pinned-tab.svg" color="#000">
 	<meta name="msapplication-TileColor" content="#000">
 	<meta name="theme-color" content="#ffffff">
 
@@ -63,8 +62,10 @@
 			<a href="{{ path }}" class="l-header__logo-link u-alpha">制作テンプレ</a>
 		</{{#if isHome}}h1{{else}}p{{/if}}>
 
-		<button class="js-nav-btn l-nav-btn u-sp">
-			<span class="l-nav-btn__line"></span>
+		<button class="js-nav-btn l-nav-btn sp">
+			<span class="l-nav-btn__line">
+				<span class="u-hidden">メニューを開閉する</span>
+			</span>
 		</button>
 
 		<nav class="js-nav-content l-nav" role="navigation" itemscope itemtype="http://www.schema.org/SiteNavigationElement">

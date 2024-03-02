@@ -106,10 +106,10 @@ export default defineConfig({
 				assetFileNames: (assetInfo) => {
 					let extType = assetInfo.name.split('.')[1];
 					if (/png|jpe?g|svg|gif|tiff|bmp|ico|webmanifest/i.test(extType)) {
-						extType = 'image';
+						extType = 'images';
 					}
-					if (extType === 'image') {
-						let assetPath = assetInfo.name; // フルパスを取得
+					if (extType === 'images') {
+						let assetPath = assetInfo.name; // フルパスを取得(vite3以下のみ有効かつMac限定？)
 						let beginIndex = assetPath.indexOf('images/');
 						let endIndex = assetPath.lastIndexOf('/');
 						let imgDir = assetPath.substring(beginIndex, endIndex);

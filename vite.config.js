@@ -2,8 +2,12 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import handlebars from 'vite-plugin-handlebars';
 import viteImagemin from 'vite-plugin-imagemin';
+import fs from 'fs';
+import path from 'path';
 
-// サイトの共通情報
+/**
+ * サイトの共通情報
+ */
 const siteData = {
 	siteName: 'Viteのベース',
 	siteDesc: 'ディスクリプション',
@@ -11,14 +15,12 @@ const siteData = {
 	siteCanonical: 'https://xxx/',
 }
 
-// HTML上で出し分けたい各ページごとの情報
+/**
+ * ページ別の情報
+ */
 const pageData = {
-
 	'/index.html': {
-		siteName: [siteData.siteName],
-		siteDesc: [siteData.siteDesc],
-		siteKwd: [siteData.siteKwd],
-		siteCanonical: [siteData.siteCanonical],
+		siteData: { ...siteData },
 		path: './',
 		isHome: true,
 		pageSlug: 'home',
@@ -26,23 +28,17 @@ const pageData = {
 		mainTxt: 'トップページです'
 	},
 	'/about/index.html': {
-		siteName: [siteData.siteName],
-		siteDesc: [siteData.siteDesc],
-		siteKwd: [siteData.siteKwd],
-		siteCanonical: [siteData.siteCanonical],
+		siteData: { ...siteData },
 		path: '../',
-		isHome: false,
+		isAbout: true,
 		pageSlug: 'about',
 		pageTitle: 'アバウトページ',
 		mainTxt: 'アバウトページです'
 	},
 	'/about/child/index.html': {
-		siteName: [siteData.siteName],
-		siteDesc: [siteData.siteDesc],
-		siteKwd: [siteData.siteKwd],
-		siteCanonical: [siteData.siteCanonical],
+		siteData: { ...siteData },
 		path: '../../',
-		isHome: false,
+		isAboutChild: true,
 		pageSlug: 'about-child',
 		pageTitle: 'アバウトの子ページ',
 		mainTxt: 'アバウトの子ページです',
@@ -50,6 +46,55 @@ const pageData = {
 	},
 
 };
+
+/**
+ * HTMLファイルの出力を自動化
+ */
+const files = [];
+function readDirectory(dirPath) {
+	const items = fs.readdirSync(dirPath);
+
+	for (const item of items) {
+		const itemPath = path.join(dirPath, item);
+
+		if (fs.statSync(itemPath).isDirectory()) {
+			// partsディレクトリを除外する
+			if (item === 'parts') {
+				continue;
+			}
+
+			readDirectory(itemPath);
+		} else {
+			// htmlファイル以外を除外する
+			if (path.extname(itemPath) !== '.html') {
+				continue;
+			}
+
+			// nameを決定する
+			let name;
+			if (dirPath === path.resolve(__dirname, 'src')) {
+				name = path.parse(itemPath).name;
+			} else {
+				const relativePath = path.relative(path.resolve(__dirname, 'src'), dirPath);
+				const dirName = relativePath.replace(/\//g, '_');
+				name = `${dirName}_${path.parse(itemPath).name}`;
+			}
+
+			// pathを決定する
+			const relativePath = path.relative(path.resolve(__dirname, 'src'), itemPath);
+			const filePath = `/${relativePath}`;
+
+			files.push({ name, path: filePath });
+		}
+	}
+}
+readDirectory(path.resolve(__dirname, 'src'));
+const inputFiles = {};
+for (let i = 0; i < files.length; i++) {
+	const file = files[i];
+	inputFiles[file.name] = resolve(__dirname, './src' + file.path);
+}
+
 
 export default defineConfig({
 	base: "./",
@@ -78,15 +123,7 @@ export default defineConfig({
 				chunkFileNames: 'assets/js/script.js',
 				// entryFileNames: 'assets/js/script.js', // 下層あるときはコメントアウトする？
 			},
-			input: {
-				home: resolve(__dirname, './src/index.html'),
-				/*
-					複数HTMLページを出力したい時にここへ追記していく
-					xxx: resolve(__dirname, './src/xxx.html'),
-				*/
-				about: resolve(__dirname, './src/about/index.html'),
-				aboutChild: resolve(__dirname, './src/about/child/index.html'),
-			},
+			input: inputFiles,
 		},
 		assetsInlineLimit: 0, // base64 URL としてインライン化しない
 		minify: false,
@@ -94,7 +131,7 @@ export default defineConfig({
 	plugins: [
 		handlebars({
 			// コンポーネントの格納ディレクトリ
-			partialDirectory: resolve(__dirname, './src/inc'),
+			partialDirectory: resolve(__dirname, './src/parts'),
 			context(pagePath) {
 				return pageData[pagePath];
 			},

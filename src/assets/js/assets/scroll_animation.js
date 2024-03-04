@@ -30,21 +30,7 @@ export default () => {
 						children[key].classList.add(foundClass);
 					});
 				}
-				// アニメーションを1度きりにする場合は以下のコメントアウト外す
-				// observer.unobserve(entry.target);
-			}
-
-			// 画面外のとき、アニメーションをリセット
-			// アニメーションを1度きりにする場合、以下のelse文はいらない
-			else {
-				if (entry.target.dataset.anime) {
-					entry.target.classList.remove(foundClass);
-				} else {
-					const founds = document.querySelectorAll('.js-anime .' + foundClass);
-					founds.forEach(found => {
-						found.classList.remove(foundClass);
-					})
-				}
+				observer.unobserve(entry.target);
 			}
 		});
 	}, options);

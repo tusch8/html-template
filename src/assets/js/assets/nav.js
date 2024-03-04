@@ -30,4 +30,11 @@ export default () => {
 			}
 		})
 	});
+
+	// ナビを開いているときで、領域外をクリックしたとき閉じる
+	document.addEventListener('click', e => {
+		if (!e.target.closest('.js-header') && navBtn.classList.contains('is-open')) {
+			toggleNav();
+		}
+	})
 }

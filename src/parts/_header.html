@@ -54,7 +54,7 @@
 	{{/if}}
 	<div class="js-nav-overlay l-nav-overlay"></div>
 
-	<header class="l-header">
+	<header class="js-header l-header">
 		<{{#if isHome}}h1{{else}}p{{/if}} class="l-header__logo">
 			<a href="{{ path }}" class="l-header__logo-link u-alpha">制作テンプレ</a>
 		</{{#if isHome}}h1{{else}}p{{/if}}>
@@ -67,19 +67,19 @@
 
 		<nav class="js-nav-content l-nav" role="navigation" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
 			<ul class="l-nav__list">
-				<li class="l-nav__list-item" itemprop="name">
+				<li class="l-nav__item" itemprop="name">
 					<a href="{{ path }}" class="l-nav__list-link u-alpha" itemprop="URL">トップページ</a>
 				</li>
-				<li class="l-nav__list-item" itemprop="name">
+				<li class="l-nav__item" itemprop="name">
 					<a href="{{ path }}about/" class="l-nav__list-link u-alpha" itemprop="URL">アバウトページ</a>
 				</li>
-				<li class="l-nav__list-item" itemprop="name">
+				<li class="l-nav__item" itemprop="name">
 					<a href="{{ path }}#intro" class="l-nav__list-link u-alpha" itemprop="URL">このテンプレについて</a>
 				</li>
-				<li class="l-nav__list-item" itemprop="name">
+				<li class="l-nav__item" itemprop="name">
 					<a href="{{ path }}#svg" class="l-nav__list-link u-alpha" itemprop="URL">SVGスプラウト</a>
 				</li>
-				<li class="l-nav__list-item" itemprop="name">
+				<li class="l-nav__item" itemprop="name">
 					<a href="{{ path }}#anime" class="l-nav__list-link u-alpha" itemprop="URL">アニメーション</a>
 				</li>
 			</ul>

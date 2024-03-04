@@ -1,0 +1,52 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/functions" as f;
+
+/**
+ * l-burger
+ */
+.l-burger {
+	position: absolute;
+	top: f.r(10);
+	right: f.r(10);
+	width: f.r(40);
+	height: f.r(40);
+	border: 1px solid;
+	.l-burger__line {
+		position: absolute;
+		top: calc(50% - f.r(1));
+		left: f.r(5);
+		width: f.r(30);
+		height: f.r(2);
+		background: rgba(var(--black));
+		transition: all 0.3s;
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			width: inherit;
+			height: inherit;
+			background: rgba(var(--black));
+			transition: inherit;
+		}
+		&::before {
+			top: f.r(-10);
+		}
+		&::after {
+			top: f.r(10);
+		}
+	}
+	&.is-open {
+		.l-burger__line {
+			background: transparent;
+			&::before {
+				top: 0;
+				rotate: 135deg;
+			}
+			&::after {
+				top: 0;
+				rotate: -135deg;
+			}
+		}
+	}
+}

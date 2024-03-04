@@ -1,0 +1,63 @@
+@use "../foundation/mixin" as m;
+@use "../foundation/functions" as f;
+
+/**
+ * l-nav
+ */
+.l-nav {
+	.l-nav__list {
+		padding: f.r(30) f.r(30) f.r(50);
+	}
+	.l-nav__list-item {
+		& + .l-nav__list-item {
+			margin-top: f.r(10);
+		}
+	}
+	@include m.m(-md) {
+		position: absolute;
+		top: f.r(60);
+		width: 100%;
+		background: #fff;
+		transition: transform 0.3s;
+		translate: 100%;
+		&.is-open {
+			translate: 0;
+		}
+	}
+	@include m.m {
+		.l-nav__list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			padding: 0;
+		}
+		.l-nav__list-item {
+			& + .l-nav__list-item {
+				margin-top: 0;
+				margin-left: f.r(30);
+			}
+		}
+	}
+}
+
+/**
+ * l-nav-overlay
+ */
+.l-nav-overlay {
+	opacity: 0;
+	visibility: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 90;
+	width: 100%;
+	height: 100%;
+	background: rgba(#000, 0.5);
+	transition: all 0.3s;
+	&.is-open {
+		opacity: 1;
+		visibility: visible;
+	}
+}

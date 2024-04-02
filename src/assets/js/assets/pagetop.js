@@ -15,7 +15,7 @@ export default () => {
 		threshold: 0.5,
 	};
 
-	const pagetopShowObserver = new IntersectionObserver((entries) => {
+	const pagetopShowObserver = new IntersectionObserver(entries => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
 				pagetop.classList.remove('is-show');
@@ -34,7 +34,7 @@ export default () => {
 		threshold: 0,
 	};
 
-	const pagetopStopObserver = new IntersectionObserver((entries) => {
+	const pagetopStopObserver = new IntersectionObserver(entries => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
 				pagetop.classList.add('is-stop');

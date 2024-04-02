@@ -8,8 +8,8 @@
 	.l-nav__list {
 		padding: f.r(30) f.r(30) f.r(50);
 	}
-	.l-nav__list-item {
-		& + .l-nav__list-item {
+	.l-nav__item {
+		& + .l-nav__item {
 			margin-top: f.r(10);
 		}
 	}
@@ -33,8 +33,8 @@
 			height: 100%;
 			padding: 0;
 		}
-		.l-nav__list-item {
-			& + .l-nav__list-item {
+		.l-nav__item {
+			& + .l-nav__item {
 				margin-top: 0;
 				margin-left: f.r(30);
 			}

@@ -4,7 +4,7 @@ $pc-gap: 30;
 $sp-design-width: 375; // SPデザインの幅
 $pc-width: 1000; // カラムの幅
 $pc-design-width: 1920; // PCデザインの幅
-$pc-max-width: $pc-width + $pc-gap * 2;
+$pc-max-width: $pc-design-width + $pc-gap * 2;
 
 :root {
 	--vh: ;
@@ -21,6 +21,7 @@ $breakpoints: (
 	"md": "screen and (min-width: 768px)", // iPad以上
 	"md-lg": "screen and (min-width: 768px) and (max-width: #{$pc-max-width - 1}px)", // iPad以上～カラム未満
 	"lg": "screen and (min-width: #{$pc-max-width}px)", // カラム以上
+	"md-xl": "screen and (min-width: 768px) and (max-width: 1365px)", // iPad以上～ノートPC未満
 	"xl": "screen and (min-width: 1366px)", // ノートPC
 	"xxl": "screen and (min-width: 1920px)", // デスクトップPC
 ) !default;

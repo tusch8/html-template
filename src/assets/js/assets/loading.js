@@ -1,12 +1,14 @@
+import ScrollAnimation from './scroll_animation.js';
+
 const html = document.documentElement;
 const body = document.body;
-const loadingEl = document.querySelector('.js-loading');
+const loading = document.querySelector('.js-loading');
 
 /**
  * ローディング画面を表示時に背景を固定する関数
  */
 export const LoadingSet = () => {
-	if (!loadingEl) {
+	if (!loading) {
 		return;
 	}
 
@@ -20,15 +22,20 @@ export const LoadingSet = () => {
  */
 export const LoadingHide = () => {
 
-	if (!loadingEl || loadingEl.classList.contains('is-loaded')) {
+	if (!loading || loading.classList.contains('is-loaded')) {
+		ScrollAnimation();
 		return;
 	}
 
-	loadingEl.classList.add('is-loaded');
+	loading.classList.add('is-loaded');
+
+	ScrollAnimation();
+
 	html.style.overflow = null;
 	body.style.overflow = null;
+	
 	setTimeout(() => {
-		loadingEl.remove();
+		loading.remove();
 	}, 1000);
 
 }

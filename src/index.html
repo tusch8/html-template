@@ -4,19 +4,36 @@
 	<p class="js-anime" data-anime="fadeIn" data-anime-delay="0.3">トップページメインビジュアル</p>
 </div>
 
+<div class="p-nav">
+	<ul class="p-nav__list" role="list">
+		<li>
+			<a href="#intro">イントロ</a>
+		</li>
+		<li>
+			<a href="#inner">インナー幅のテスト</a>
+		</li>
+		<li>
+			<a href="#svg">SVGスプライト</a>
+		</li>
+		<li>
+			<a href="#anime">アニメーション</a>
+		</li>
+	</ul>
+</div>
+
 <section id="intro" class="p-intro">
 	<div class="p-intro__inner u-inner">
-		<h2 class="c-head01">このテンプレについて</h2>
-		<p class="p-intro__lead">通常コーディング用テンプレ</p>
-		<p class="p-intro__txt">Viteのバージョンは3.2.5を使用(v4以降だとassetInfo.nameで画像のパスを取得できなくなったため)</p>
+		<h2 class="c-head01">通常コーディング用テンプレ</h2>
+		<p class="p-intro__txt">Viteのバージョンは3.2.10を使用(v4以降だとassetInfo.nameで画像のパスを取得できなくなったため)</p>
 		<p class="p-intro__txt">CSSはFLOCSSベースで記述する</p>
 		<p class="p-intro__txt">スタイルはSPから記述する</p>
 		<p class="p-intro__txt">remに変換する関数を用意したのでそこにpx値を入力</p>
 		<p class="p-intro__txt">カラム幅未満はサイズ可変になる</p>
 		<p class="p-intro__txt">カラム幅以上はデフォルトのフォントサイズがベースになる</p>
 		<p class="p-intro__txt">remブラウザのフォントサイズ変更機能には対応していない（可変したいテキストはpxで指定する）</p>
-		<p class="p-intro__txt">SVGはuseで埋め込む</p>
+		<p class="p-intro__txt">アイコン等のSVGはuseで埋め込む</p>
 		<p class="p-intro__txt">CLS対策のため、画像にはwidthとheightは必ず書く</p>
+		<p class="p-intro__txt">スタイルを当てるul,olにはrole="list"を書く</p>
 		<p class="p-intro__txt">loading="lazy"も書く</p>
 		<p class="p-intro__txt">Scssの&でのネスト禁止(検索がめんどいので)</p>
 		<p class="p-intro__txt">パンクズの構造化データはまだ実装していない</p>
@@ -54,10 +71,10 @@
 		<h2 class="c-head01">画像表示テスト</h2>
 		<figure class="p-image__img">
 			<picture>
-				<source srcset="./assets/images/home/img_home01_pc.jpg" media="(min-width: 768px)">
-				<img src="./assets/images/home/img_home01_sp.jpg" alt="" loading="lazy">
+				<source srcset="./assets/images/index/img_index01_pc.jpg" media="(min-width: 768px)">
+				<img src="./assets/images/index/img_index01_sp.jpg" alt="" loading="lazy">
 			</picture>
-			<figcaption>homeフォルダの画像</figcaption>
+			<figcaption>indexフォルダの画像</figcaption>
 		</figure>
 		<figure class="p-image__img">
 			<img src="./assets/images/common/img_common01.jpg" alt="" loading="lazy">

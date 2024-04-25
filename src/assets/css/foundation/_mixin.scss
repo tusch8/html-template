@@ -12,7 +12,7 @@
 	&:focus {
 		@content;
 	}
-	@media (hover: hover) and (pointer: fine) {
+	@media (any-hover: hover) {
 		&:hover {
 			@content;
 		}

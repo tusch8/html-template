@@ -1,139 +1,90 @@
-html,
-body,
-p,
-ol,
-ul,
-li,
-dl,
-dt,
-dd,
-blockquote,
-figure,
-fieldset,
-legend,
-textarea,
-pre,
-iframe,
-hr,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0;
-	padding: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-small {
-	font-weight: normal;
-	font-size: 100%;
-}
-
-ul,
-ol {
-	list-style: none;
-}
-
-html {
-	overflow: auto;
-	box-sizing: border-box;
-}
-
+/* Box sizing rules */
 *,
 *::before,
 *::after {
-	box-sizing: inherit;
+	box-sizing: border-box;
 }
 
-img,
-iframe {
-	border: 0;
-	vertical-align: top;
+/* Prevent font size inflation */
+html {
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
 }
 
-img,
-video {
-	max-width: 100%;
-	height: auto;
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin-block-end: 0;
 }
 
-img {
-	vertical-align: top;
-	backface-visibility: hidden;
-	// image-rendering: -webkit-optimize-contrast;
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+	list-style: none;
 }
 
-table {
-	width: 100%;
-	table-layout: fixed;
-	// border-collapse: collapse;
-	border-spacing: 0;
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	line-height: 1.5;
 }
 
-a {
-	color: inherit;
-	text-decoration: none;
-}
-
-input[type="text"],
-input[type="number"],
-input[type="email"],
-input[type="submit"],
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
 button,
-select,
-textarea {
-	margin: 0;
-	padding: 0;
-	border: none;
-	border-radius: 0;
-	background: transparent;
-	color: inherit;
+input,
+label {
+	line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+	text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+	color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
 	font-family: inherit;
 	font-size: inherit;
-	vertical-align: top;
-	appearance: none;
 }
 
-textarea {
-	resize: vertical;
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+	min-height: 10em;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
-	display: none;
-}
-
-input[type="submit"],
-input[type="button"],
-input[type="radio"],
-input[type="checkbox"],
-label,
-button,
-select {
-	cursor: pointer;
-}
-
-input:focus::-webkit-input-placeholder {
-	color: transparent;
-}
-
-input:focus::-moz-placeholder {
-	color: transparent;
-}
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-	margin: 0;
-	-webkit-appearance: none;
-}
-
-input[type="number"] {
-	-moz-appearance: textfield;
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+	scroll-margin-block: 5ex;
 }

@@ -37,7 +37,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
-	{{#if isHome}}
+	{{#if isFront}}
 	<title>{{ siteData.siteName }}</title>
 	{{else}}
 	<title>{{ pageTitle }} | {{ siteData.siteName }}</title>
@@ -47,7 +47,7 @@
 
 <body id="{{ pageSlug }}" ontouchstart="">
 
-	{{#if isHome}}
+	{{#if isFront}}
 	<div class="js-loading l-loading">
 		<div class="l-loading__ico">Loading...</div>
 	</div>
@@ -55,9 +55,9 @@
 	<div class="js-nav-overlay l-nav-overlay"></div>
 
 	<header class="js-header l-header">
-		<{{#if isHome}}h1{{else}}p{{/if}} class="l-header__logo">
+		<{{#if isFront}}h1{{else}}p{{/if}} class="l-header__logo">
 			<a href="{{ path }}" class="l-header__logo-link u-alpha">制作テンプレ</a>
-		</{{#if isHome}}h1{{else}}p{{/if}}>
+		</{{#if isFront}}h1{{else}}p{{/if}}>
 
 		<button class="js-nav-btn l-nav-btn sp">
 			<span class="l-nav-btn__line">
@@ -66,7 +66,7 @@
 		</button>
 
 		<nav class="js-nav-content l-nav">
-			<ul class="l-nav__list">
+			<ul class="l-nav__list" role="list">
 				<li class="l-nav__item">
 					<a href="{{ path }}" class="l-nav__list-link u-alpha">トップページ</a>
 				</li>
@@ -86,7 +86,7 @@
 		</nav>
 	</header>
 
-	{{#unless isHome }}
+	{{#unless isFront }}
 	<div class="js-kv l-sub-kv">
 		<h1 class="l-sub-kv__txt">{{mainTxt}}</h1>
 	</div>

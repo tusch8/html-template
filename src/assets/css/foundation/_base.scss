@@ -4,7 +4,6 @@
 @use "./functions" as f;
 
 html {
-	scroll-behavior: smooth;
 	&:not([lang="ja"]) {
 		word-break: break-word;
 	}

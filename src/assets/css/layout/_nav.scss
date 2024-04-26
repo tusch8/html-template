@@ -14,11 +14,12 @@
 		}
 	}
 	@include m.m(-md) {
+		display: block;
 		position: absolute;
 		top: f.r(60);
 		width: 100%;
 		background: #fff;
-		transition: transform 0.3s;
+		transition: translate 0.3s;
 		translate: 100%;
 		&.is-open {
 			translate: 0;

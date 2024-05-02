@@ -42,7 +42,8 @@
 	{{else}}
 	<title>{{ pageTitle }} | {{ siteData.siteName }}</title>
 	{{/if}}
-	<link rel="stylesheet" href="{{ path }}assets/css/style.scss"><script type="module" src="{{ path }}assets/js/main.js"></script>
+	<link rel="stylesheet" href="{{ path }}assets/css/style.scss">
+	<script type="module" src="{{ path }}assets/js/main.js"></script>
 </head>
 
 <body id="{{ pageSlug }}" ontouchstart="">
@@ -52,14 +53,13 @@
 		<div class="l-loading__ico">Loading...</div>
 	</div>
 	{{/if}}
-	<div class="js-nav-overlay l-nav-overlay"></div>
 
 	<header class="js-header l-header">
 		<{{#if isFront}}h1{{else}}p{{/if}} class="l-header__logo">
 			<a href="{{ path }}" class="l-header__logo-link u-alpha">制作テンプレ</a>
 		</{{#if isFront}}h1{{else}}p{{/if}}>
 
-		<button class="js-nav-btn l-burger sp">
+		<button class="js-nav-btn l-burger sp" role="button">
 			<span class="l-burger__line">
 				<span class="u-hidden">メニューを開閉する</span>
 			</span>
@@ -85,6 +85,7 @@
 			</ul>
 		</nav>
 	</header>
+	<button class="js-nav-overlay l-nav-overlay" role="button"></button>
 
 	{{#unless isFront }}
 	<div class="js-kv l-sub-kv">

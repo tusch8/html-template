@@ -1,27 +1,58 @@
 $base-font-size: 16;
+
+// SPの左右の余白
 $sp-gap: 15;
+
+// PCの左右の余白
 $pc-gap: 30;
-$sp-design-width: 375; // SPデザインの幅
-$pc-width: 1000; // カラムの幅
-$pc-design-width: 1920; // PCデザインの幅
-$pc-max-width: $pc-design-width + $pc-gap * 2;
+
+// SPデザインの幅
+$sp-design-width: 375;
+
+// PCデザインの幅
+$pc-design-width: 1920;
+
+// PCデザインのカラムの幅
+$pc-column-width: 1000;
+
+// 余白を含めたPCの最大幅
+$pc-max-width: $pc-column-width + $pc-gap * 2;
 
 :root {
 	--vh: ;
 
-	--black: 0,0,0;
-	--gray: 204,204,204; // #ccc
+	--black: 0, 0, 0;
+	--gray: 204, 204, 204; // #ccc
 }
 
 $breakpoints: (
-	"-xs": "screen and (max-width: 374px)", // 小スマホ
+	// 小スマホ
+	"-xs": "screen and (max-width: 374.99px)",
+
+	// スマホ
 	"xs": "screen and (min-width: 375px)",
+
+	// 小タブレット以上
 	"sm": "screen and (min-width: 641px)",
-	"-md": "screen and (max-width: 767px)", // iPad未満
-	"md": "screen and (min-width: 768px)", // iPad以上
-	"md-lg": "screen and (min-width: 768px) and (max-width: #{$pc-max-width - 1}px)", // iPad以上～カラム未満
-	"lg": "screen and (min-width: #{$pc-max-width}px)", // カラム以上
-	"md-xl": "screen and (min-width: 768px) and (max-width: 1365px)", // iPad以上～ノートPC未満
-	"xl": "screen and (min-width: 1366px)", // ノートPC
-	"xxl": "screen and (min-width: 1920px)", // デスクトップPC
+
+	// iPad未満
+	"-md": "screen and (max-width: 767.99px)",
+
+	// iPad以上
+	"md": "screen and (min-width: 768px)",
+
+	// iPad以上～カラム未満
+	"md-lg": "screen and (min-width: 768px) and (max-width: #{$pc-max-width - 0.01}px)",
+
+	// カラム以上
+	"lg": "screen and (min-width: #{$pc-max-width}px)",
+
+	// iPad以上～ノートPC未満
+	"md-xl": "screen and (min-width: 768px) and (max-width: 1365.99px)",
+
+	// ノートPC以上
+	"xl": "screen and (min-width: 1366px)",
+
+	// デスクトップPC以上
+	"xxl": "screen and (min-width: 1920px)"
 ) !default;

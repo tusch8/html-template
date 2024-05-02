@@ -15,13 +15,15 @@
 	}
 	@include m.m(-md) {
 		display: block;
+		visibility: hidden;
 		position: absolute;
 		top: f.r(60);
 		width: 100%;
 		background: #fff;
-		transition: translate 0.3s;
+		transition: translate 0.3s ,visibility 0.3s;
 		translate: 100%;
 		&.is-open {
+			visibility: visible;
 			translate: 0;
 		}
 	}

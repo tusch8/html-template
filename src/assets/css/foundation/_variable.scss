@@ -21,8 +21,8 @@ $pc-max-width: $pc-column-width + $pc-gap * 2;
 :root {
 	--vh: ;
 
-	--black: 0, 0, 0;
-	--gray: 204, 204, 204; // #ccc
+	--black: 0 0 0;
+	--gray: 204 204 204; // #ccc
 }
 
 $breakpoints: (

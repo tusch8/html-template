@@ -9,7 +9,7 @@
 	position: fixed;
 	right: f.r(30);
 	bottom: f.r(30);
-	color: rgba(var(--black));
+	color: rgb(var(--black));
 	transition: opacity .3s;
 	&.is-show {
 		opacity: 1;

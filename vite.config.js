@@ -21,7 +21,7 @@ const siteData = {
 const pageData = {
 	'/index.html': {
 		siteData: { ...siteData },
-		path: './',
+		path: '',
 		isFront: true,
 		pageSlug: 'index',
 		pageTitle: 'トップページ',

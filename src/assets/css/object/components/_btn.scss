@@ -9,14 +9,17 @@
 	width: 100%;
 	max-width: f.r(240);
 	margin: f.r(30) auto 0;
-	.c-btn01__link {
-		display: grid;
-		place-items: center;
-		border-radius: 9999px;
-		border: 1px solid;
-		padding: f.r(5);
-	}
-	@include m.m {
+}
+.c-btn01__link {
+	display: grid;
+	place-items: center;
+	border-radius: 9999px;
+	border: 1px solid;
+	padding: f.r(5);
+}
+
+@include m.m {
+	.c-btn01 {
 		margin: f.r(50) auto 0;
 		max-width: f.r(300);
 	}

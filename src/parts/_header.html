@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+	<meta name="format-detection" content="telephone=no">
 
 	<meta name="description" content="{{ siteData.siteDesc }}">
 	<meta name="keywords" content="{{ siteKwd }}">
@@ -35,7 +36,7 @@
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 
 	{{#if isFront}}
 	<title>{{ siteData.siteName }}</title>
@@ -49,46 +50,52 @@
 <body id="{{ pageSlug }}" ontouchstart="">
 
 	{{#if isFront}}
-	<div class="js-loading l-loading">
-		<div class="l-loading__ico">Loading...</div>
+	<div class="l-loading" data-loading>
+		<p class="l-loading__txt">Loading...</p>
 	</div>
 	{{/if}}
 
-	<header class="js-header l-header">
+	<header id="header" class="l-header">
 		<{{#if isFront}}h1{{else}}p{{/if}} class="l-header__logo">
 			<a href="{{ path }}" class="l-header__logo-link u-alpha">制作テンプレ</a>
 		</{{#if isFront}}h1{{else}}p{{/if}}>
 
-		<button class="js-nav-btn l-burger sp" role="button">
-			<span class="l-burger__line">
-				<span class="u-hidden">メニューを開閉する</span>
-			</span>
-		</button>
-
-		<nav class="js-nav-content l-nav">
-			<ul class="l-nav__list" role="list">
-				<li class="l-nav__item">
-					<a href="{{ path }}" class="l-nav__list-link u-alpha">トップページ</a>
-				</li>
-				<li class="l-nav__item">
-					<a href="{{ path }}about/" class="l-nav__list-link u-alpha">アバウトページ</a>
-				</li>
-				<li class="l-nav__item">
-					<a href="{{ path }}#intro" class="l-nav__list-link u-alpha">このテンプレについて</a>
-				</li>
-				<li class="l-nav__item">
-					<a href="{{ path }}#svg" class="l-nav__list-link u-alpha">SVGスプラウト</a>
-				</li>
-				<li class="l-nav__item">
-					<a href="{{ path }}#anime" class="l-nav__list-link u-alpha">アニメーション</a>
-				</li>
-			</ul>
+		<nav class="l-nav">
+			<dialog class="l-nav__container u-view-sp" data-nav-container autofocus>
+				<button class="l-nav__hamburger -close" type="button" data-nav-close>
+					<span class="l-nav__hamburger-icon">
+						<span class="u-hidden">メニューを閉じる</span>
+					</span>
+				</button>
+				<ul role="list" class="l-nav__list" data-nav-list>
+					<li class="l-nav__list-item">
+						<a href="{{ path }}" class="l-nav__list-link u-alpha">トップページ</a>
+					</li>
+					<li class="l-nav__list-item">
+						<a href="{{ path }}about/" class="l-nav__list-link u-alpha">アバウトページ</a>
+					</li>
+					<li class="l-nav__list-item">
+						<a href="{{ path }}#intro" class="l-nav__list-link u-alpha">このテンプレについて</a>
+					</li>
+					<li class="l-nav__list-item">
+						<a href="{{ path }}#svg" class="l-nav__list-link u-alpha">SVGスプラウト</a>
+					</li>
+					<li class="l-nav__list-item">
+						<a href="{{ path }}#anime" class="l-nav__list-link u-alpha">アニメーション</a>
+					</li>
+				</ul>
+			</dialog>
+			<button class="l-nav__hamburger u-view-sp" type="button" data-nav-open>
+				<span class="l-nav__hamburger-icon">
+					<span class="u-hidden">メニューを開く</span>
+				</span>
+			</button>
+			<div class="l-nav__pc u-view-pc" data-nav-pc aria-hidden></div>
 		</nav>
 	</header>
-	<button class="js-nav-overlay l-nav-overlay" role="button"></button>
 
 	{{#unless isFront }}
-	<div class="js-kv l-sub-kv">
+	<div class="l-sub-kv" data-page-top-hide>
 		<h1 class="l-sub-kv__txt">{{mainTxt}}</h1>
 	</div>
 	{{> _breadcrumb }}

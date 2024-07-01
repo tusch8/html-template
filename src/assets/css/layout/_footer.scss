@@ -8,23 +8,24 @@
 	position: relative;
 	background: rgb(var(--black));
 	color: #fff;
+}
+.l-footer__inner {
+	padding-top: f.r(30);
+	padding-bottom: f.r(30);
+	text-align: center;
+}
+.l-footer__copyright {
+	margin-top: f.r(20);
+	font-size: f.r(10);
+}
+
+@include m.m {
 	.l-footer__inner {
-		padding-top: f.r(30);
-		padding-bottom: f.r(30);
+		padding-top: f.r(50);
+		padding-bottom: f.r(50);
 		text-align: center;
 	}
 	.l-footer__copyright {
-		margin-top: f.r(20);
-		font-size: f.r(10);
-	}
-	@include m.m {
-		.l-footer__inner {
-			padding-top: f.r(50);
-			padding-bottom: f.r(50);
-			text-align: center;
-		}
-		.l-footer__copyright {
-			font-size: f.r(12);
-		}
+		font-size: f.r(12);
 	}
 }

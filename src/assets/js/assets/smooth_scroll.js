@@ -1,24 +1,27 @@
 export default () => {
 
-	const smoothScrollTriggers = document.querySelectorAll('a[href^="#"]');
-	const header = document.querySelector('.js-header');
+	const triggers = document.querySelectorAll('a[href^="#"]');
+	const header = document.getElementById('header');
 	let href, target, rect, headerHeight, position;
 
-	smoothScrollTriggers.forEach(trigger => {
+	triggers.forEach(trigger => {
 		trigger.addEventListener('click', e => {
 			e.preventDefault();
-
 			href = trigger.getAttribute('href');
 
 			// ページトップのとき
 			if (href === "#top") {
 				position = 0;
+			}
 
-				// それ以外のページ内リンク
-			} else {
+			// それ以外のページ内リンク
+			else {
 				target = document.getElementById(href.replace('#', ''));
-				rect = target.getBoundingClientRect().top;
+				rect = target.getBoundingClientRect().top + window.scrollY;
+
+				// 追従ヘッダーの場合ヘッダーの高さを引く
 				headerHeight = header.clientHeight;
+				
 				position = rect - headerHeight;
 			}
 

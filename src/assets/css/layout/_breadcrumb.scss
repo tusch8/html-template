@@ -8,19 +8,21 @@
 	display: flex;
 	flex-wrap: wrap;
 	padding: f.r(10) 0;
-	.l-breadcrumb__item {
-		font-size: f.r(12);
-		& + .l-breadcrumb__item {
-			&::before {
-				content: "\FF1E";
-				display: inline-block;
-				padding: 0 f.r(3) 0 f.r(6);
-			}
+}
+
+.l-breadcrumb__item {
+	font-size: f.r(12);
+	& + .l-breadcrumb__item {
+		&::before {
+			content: "\FF1E";
+			display: inline-block;
+			padding: 0 f.r(3) 0 f.r(6);
 		}
 	}
-	@include m.m {
-		.l-breadcrumb__item {
-			font-size: f.r(14);
-		}
+}
+
+@include m.m {
+	.l-breadcrumb__item {
+		font-size: f.r(14);
 	}
 }

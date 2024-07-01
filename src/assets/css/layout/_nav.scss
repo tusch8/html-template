@@ -5,64 +5,111 @@
  * l-nav
  */
 .l-nav {
-	.l-nav__list {
-		padding: f.r(30) f.r(30) f.r(50);
-	}
-	.l-nav__item {
-		& + .l-nav__item {
-			margin-top: f.r(10);
-		}
-	}
-	@include m.m(-md) {
-		display: block;
-		visibility: hidden;
-		position: absolute;
-		top: f.r(60);
+}
+
+@include m.m(-md) {
+	// ダイアログ部分
+	.l-nav__container {
+		position: fixed;
+		top: 0;
+		left: 0;
+		left: auto;
 		width: 100%;
-		background: #fff;
-		transition:
-			translate 0.3s,
-			visibility 0.3s;
-		translate: 100%;
-		&.is-open {
-			visibility: visible;
-			translate: 0;
+		transition: opacity var(--duration);
+		translate: 0;
+		&::backdrop {
+			transition: opacity var(--duration);
+		}
+
+		// メニューを表示する前後のスタイル
+		&.is-open,
+		&.is-close {
+			opacity: 0;
+			&::backdrop {
+				opacity: 0;
+			}
+		}
+		&::backdrop {
+			background: rgb(255 255 255 / 0.5);
+			backdrop-filter: blur(3px);
 		}
 	}
-	@include m.m {
-		.l-nav__list {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			height: 100%;
-			padding: 0;
-		}
-		.l-nav__item {
-			& + .l-nav__item {
-				margin-top: 0;
-				margin-left: f.r(30);
+	// ハンバーガーボタン
+	.l-nav__hamburger {
+		position: fixed;
+		top: f.r(10);
+		right: f.r(10);
+		z-index: 1;
+		width: f.r(40);
+		height: f.r(40);
+		border: 1px solid;
+		background: white;
+
+		// 閉じるボタン
+		&.-close {
+			.l-nav__hamburger-icon {
+				background: transparent;
+				&::before {
+					top: 0;
+					rotate: 135deg;
+				}
+				&::after {
+					top: 0;
+					rotate: -135deg;
+				}
 			}
 		}
 	}
+	.l-nav__hamburger-icon {
+		position: absolute;
+		top: 50%;
+		left: f.r(4);
+		width: f.r(30);
+		height: 1px;
+		background: rgb(var(--black));
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			width: inherit;
+			height: inherit;
+			background: rgb(var(--black));
+			transition: inherit;
+		}
+		&::before {
+			top: f.r(-9);
+		}
+		&::after {
+			top: f.r(9);
+		}
+	}
+	// メニュー部分
+	.l-nav__list {
+		padding: f.r(50) f.r(25);
+		box-sizing: border-box;
+		background: white;
+	}
+	.l-nav__list-item {
+	}
+	.l-nav__list-link {
+		padding: 0.5em 0;
+	}
 }
 
-/**
- * l-nav-overlay
- */
-.l-nav-overlay {
-	opacity: 0;
-	visibility: hidden;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 90;
-	width: 100%;
-	height: 100%;
-	background: rgb(var(--black) / 0.5);
-	transition: all 0.3s;
-	&.is-open {
-		opacity: 1;
-		visibility: visible;
+@include m.m {
+	// メニュー部分
+	.l-nav__pc {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+	.l-nav__list {
+		display: flex;
+		gap: f.r(30);
+	}
+	.l-nav__list-item {
+	}
+	.l-nav__list-link {
 	}
 }

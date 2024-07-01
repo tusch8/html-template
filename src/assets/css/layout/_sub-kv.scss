@@ -9,7 +9,10 @@
 	display: grid;
 	place-items: center;
 	height: f.r(200);
-	@include m.m {
+}
+
+@include m.m {
+	.l-sub-kv {
 		height: f.r(400);
 	}
 }

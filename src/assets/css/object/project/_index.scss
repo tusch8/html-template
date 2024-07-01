@@ -9,7 +9,10 @@
 	display: grid;
 	place-items: center;
 	height: f.r(300);
-	@include m.m {
+}
+
+@include m.m {
+	.p-kv {
 		height: f.r(800);
 	}
 }
@@ -18,30 +21,34 @@
  * p-nav
  */
 .p-nav {
-	.p-nav__list {
-		display: flex;
-		flex-wrap: wrap;
-		gap: f.r(20);
-		justify-content: center;
-	}
-	@include m.m {
-	}
+}
+.p-nav__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: f.r(20);
+	justify-content: center;
+}
+
+@include m.m {
 }
 
 /**
  * p-intro
  */
 .p-intro {
-	.p-intro__inner {
-		padding-top: f.r(50);
-		padding-bottom: f.r(50);
-		text-align: center;
+}
+.p-intro__inner {
+	padding-top: f.r(50);
+	padding-bottom: f.r(50);
+	text-align: center;
+}
+
+@include m.m {
+	.p-intro {
 	}
-	@include m.m {
-		.p-intro__inner {
-			padding-top: f.r(100);
-			padding-bottom: f.r(100);
-		}
+	.p-intro__inner {
+		padding-top: f.r(100);
+		padding-bottom: f.r(100);
 	}
 }
 
@@ -50,23 +57,26 @@
  */
 .p-inner {
 	background: #eee;
+}
+.p-inner__inner {
+	padding-top: f.r(50);
+	padding-bottom: f.r(50);
+	background-color: #fcfcfc;
+	text-align: center;
+}
+.p-inner__txt1 {
+	font-size: f.r(20);
+}
+.p-inner__txt2 {
+	font-size: 20px;
+}
+@include m.m {
+	.p-inner {
+		background: #eee;
+	}
 	.p-inner__inner {
-		padding-top: f.r(50);
-		padding-bottom: f.r(50);
-		background-color: #fcfcfc;
-		text-align: center;
-	}
-	.p-inner__txt1 {
-		font-size: f.r(20);
-	}
-	.p-inner__txt2 {
-		font-size: 20px;
-	}
-	@include m.m {
-		.p-inner__inner {
-			padding-top: f.r(100);
-			padding-bottom: f.r(100);
-		}
+		padding-top: f.r(100);
+		padding-bottom: f.r(100);
 	}
 }
 
@@ -74,21 +84,22 @@
  * p-svg
  */
 .p-svg {
+}
+.p-svg__inner {
+	padding-top: f.r(50);
+	padding-bottom: f.r(50);
+}
+.p-svg__txt {
+	text-align: center;
+}
+.p-svg__ico {
+	width: f.r(30);
+}
+
+@include m.m {
 	.p-svg__inner {
-		padding-top: f.r(50);
-		padding-bottom: f.r(50);
-	}
-	.p-svg__txt {
-		text-align: center;
-	}
-	.p-svg__ico {
-		width: f.r(30);
-	}
-	@include m.m {
-		.p-svg__inner {
-			padding-top: f.r(100);
-			padding-bottom: f.r(100);
-		}
+		padding-top: f.r(100);
+		padding-bottom: f.r(100);
 	}
 }
 
@@ -97,18 +108,21 @@
  */
 .p-anime {
 	background: #eee;
+}
+.p-anime__inner {
+	padding-top: f.r(50);
+	padding-bottom: f.r(50);
+}
+.p-anime__txt {
+	text-align: center;
+}
+
+@include m.m {
+	.p-anime {
+	}
 	.p-anime__inner {
-		padding-top: f.r(50);
-		padding-bottom: f.r(50);
-	}
-	.p-anime__txt {
-		text-align: center;
-	}
-	@include m.m {
-		.p-anime__inner {
-			padding-top: f.r(100);
-			padding-bottom: f.r(100);
-		}
+		padding-top: f.r(100);
+		padding-bottom: f.r(100);
 	}
 }
 
@@ -116,24 +130,25 @@
  * p-image
  */
 .p-image {
+}
+.p-image__inner {
+	padding-top: f.r(50);
+	padding-bottom: f.r(50);
+}
+.p-image__img {
+	width: f.r(500);
+	margin: 0 auto;
+}
+.p-image__bg {
+	width: f.r(500);
+	height: f.r(500);
+	margin: 0 auto;
+	background: url(../images/index/bg_index01.jpg) no-repeat center / cover;
+}
+
+@include m.m {
 	.p-image__inner {
-		padding-top: f.r(50);
-		padding-bottom: f.r(50);
-	}
-	.p-image__img {
-		width: f.r(500);
-		margin: 0 auto;
-	}
-	.p-image__bg {
-		width: f.r(500);
-		height: f.r(500);
-		margin: 0 auto;
-		background: url(../images/index/bg_index01.jpg) no-repeat center / cover;
-	}
-	@include m.m {
-		.p-image__inner {
-			padding-top: f.r(100);
-			padding-bottom: f.r(100);
-		}
+		padding-top: f.r(100);
+		padding-bottom: f.r(100);
 	}
 }

@@ -7,10 +7,10 @@ html {
 		word-break: break-word;
 	}
 	@include m.m(-md) {
-		font-size: calc(100vw * v.$base-font-size / v.$sp-design-width);
+		font-size: calc(100vw * #{f.conv(base-font-size)} / v.$sp-design-width);
 	}
 	@include m.m(md-lg) {
-		font-size: calc(100vw * v.$base-font-size / v.$pc-max-width);
+		font-size: calc(100vw * #{f.conv(base-font-size)} / v.$pc-max-width);
 	}
 }
 
@@ -18,6 +18,7 @@ body {
 	min-width: 320px;
 	padding-top: f.r(60);
 	color: rgb(var(--black));
+	background-color: white;
 	font-family: "Noto Sans JP", sans-serif;
 	font-weight: 400;
 	font-size: f.r(16);
@@ -34,19 +35,15 @@ body {
 	}
 }
 
-/**
- * show hide
- */
-// SPのみ表示
-.sp {
-	@include m.m {
-		display: none !important;
-	}
+// dialogが開いているときに背景固定
+body:has(dialog[open]) {
+	overflow: hidden;
 }
 
-// PC(タブレット以上)のみ表示
-.pc {
-	@include m.m(-md) {
-		display: none !important;
-	}
-}
+// ダークモードに対応させるとき
+// @media (prefers-color-scheme: dark) {
+// 	body {
+// 		color: white;
+// 		background-color: rgb(var(--black));
+// 	}
+// }

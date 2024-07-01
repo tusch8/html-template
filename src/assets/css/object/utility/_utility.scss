@@ -3,7 +3,7 @@
 @use "../../foundation/variable" as v;
 
 /**
- * layout
+ * Layout
  */
 .u-inner {
 	padding-right: f.r(#{v.$sp-gap});
@@ -17,46 +17,54 @@
 	}
 }
 
-/**
- * hover
- */
+.u-hidden {
+	clip: rect(0, 0, 0, 0);
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+	white-space: nowrap;
+}
+
+// SPのみ表示
+.u-view-sp {
+	@include m.m {
+		display: none !important;
+	}
+}
+
+// PC(タブレット以上)のみ表示
+.u-view-pc {
+	@include m.m(-md) {
+		display: none !important;
+	}
+}
+
 .u-alpha {
-	transition: opacity 0.3s;
+	transition: opacity var(--duration);
 	@include m.h() {
 		opacity: 0.7;
 	}
 }
 
 /**
- * text
+ * Typography
  */
-.u-break {
-	display: inline-block;
-}
-
-/**
- * font
- */
-.u-bold {
+.u-font-bold {
 	font-weight: 700;
 }
 
-.u-black {
+.u-font-black {
+	font-weight: 900;
+}
+
+.u-text-black {
 	color: rgb(var(--black));
 }
 
-.u-gray {
+.u-text-gray {
 	color: rgb(var(--gray));
-}
-
-.u-hidden {
-	clip: rect(0 0 0 0);
-	clip-path: inset(50%);
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	overflow: hidden;
-	border: 0;
-	white-space: nowrap;
 }

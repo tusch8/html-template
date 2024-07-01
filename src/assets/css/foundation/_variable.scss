@@ -1,4 +1,10 @@
-$base-font-size: 16;
+:root {
+	--base-font-size: 16; // remの計算を行う際の基本のフォントサイズ
+	--duration: 0.6s; // 基本的なアニメーション速度
+	
+	--black: 0 0 0;
+	--gray: 204 204 204; // #ccc
+}
 
 // SPの左右の余白
 $sp-gap: 15;
@@ -18,41 +24,34 @@ $pc-column-width: 1000;
 // 余白を含めたPCの最大幅
 $pc-max-width: $pc-column-width + $pc-gap * 2;
 
-:root {
-	--vh: ;
-
-	--black: 0 0 0;
-	--gray: 204 204 204; // #ccc
-}
-
 $breakpoints: (
-	// 小スマホ
-	"-xs": "screen and (max-width: 374.99px)",
+	// 小さいスマホ未満
+	"-xs": "(width < 375px)",
 
 	// スマホ
-	"xs": "screen and (min-width: 375px)",
+	"xs": "(375px <= width)",
 
 	// 小タブレット以上
-	"sm": "screen and (min-width: 641px)",
+	"sm": "(641px <= width)",
 
 	// iPad未満
-	"-md": "screen and (max-width: 767.99px)",
+	"-md": "(width < 768px)",
 
 	// iPad以上
-	"md": "screen and (min-width: 768px)",
+	"md": "(768px <= width)",
 
 	// iPad以上～カラム未満
-	"md-lg": "screen and (min-width: 768px) and (max-width: #{$pc-max-width - 0.01}px)",
+	"md-lg": "(768px <= width < #{$pc-max-width}px)",
 
 	// カラム以上
-	"lg": "screen and (min-width: #{$pc-max-width}px)",
+	"lg": "(#{$pc-max-width}px <= width)",
 
 	// iPad以上～ノートPC未満
-	"md-xl": "screen and (min-width: 768px) and (max-width: 1365.99px)",
+	"md-xl": "(768px <= width < 1366px)",
 
 	// ノートPC以上
-	"xl": "screen and (min-width: 1366px)",
+	"xl": "(1366px <= width)",
 
 	// デスクトップPC以上
-	"xxl": "screen and (min-width: 1920px)"
+	"xxl": "(1920px <= width)"
 ) !default;

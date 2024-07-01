@@ -12,30 +12,32 @@
 	width: 100%;
 	height: f.r(60);
 	background: #fff;
-	.l-header__logo {
+}
+.l-header__logo {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+.l-header__logo-link {
+	display: block;
+	font-weight: 700;
+	font-size: f.r(20);
+}
+
+@include m.m {
+	.l-header {
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-		height: 100%;
-	}
-	.l-header__logo-link {
-		display: block;
-		font-weight: 700;
-		font-size: f.r(20);
-	}
-	@include m.m {
-		display: flex;
-		flex-wrap: wrap;
 		justify-content: space-between;
 		position: absolute;
 		height: f.r(120);
 		padding: 0 f.r(30);
-		.l-header__logo {
-			justify-content: flex-start;
-		}
-		.l-header__link {
-			font-size: f.r(30);
-		}
+	}
+	.l-header__logo {
+		justify-content: flex-start;
+	}
+	.l-header__link {
+		font-size: f.r(30);
 	}
 }

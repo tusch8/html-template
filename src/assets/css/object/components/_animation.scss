@@ -150,7 +150,7 @@
 }
 
 @include m.m(-md) {
-	.js-anime[data-anime] {
+	[data-anime] {
 		transition-delay: 0s;
 	}
 }

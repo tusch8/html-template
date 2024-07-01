@@ -1,9 +1,10 @@
 import { LoadingSet, LoadingHide } from './assets/loading.js';
 import Nav from './assets/nav.js';
 import SmoothScroll from './assets/smooth_scroll.js';
-import Pagetop from './assets/pagetop.js';
+import PageTop from './assets/page_top.js';
 
 import Index from './scenes/index.js';
+import About from './scenes/about.js';
 
 // bodyのid
 const bodyId = document.body.getAttribute('id');
@@ -23,12 +24,15 @@ const PageLoaded = () => {
 	LoadingHide();
 	Nav();
 	SmoothScroll();
-	Pagetop();
+	PageTop();
 
 	// ページ別のJSを実行
 	switch (bodyId) {
 		case 'index':
 			Index();
+			break;
+		case 'about':
+			About();
 			break;
 	}
 }

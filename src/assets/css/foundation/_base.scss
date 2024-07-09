@@ -7,10 +7,10 @@ html {
 		word-break: break-word;
 	}
 	@include m.m(-md) {
-		font-size: calc(100vw * #{f.conv(base-font-size)} / v.$sp-design-width);
+		font-size: calc(100vw * v.$base-font-size / v.$sp-design-width);
 	}
 	@include m.m(md-lg) {
-		font-size: calc(100vw * #{f.conv(base-font-size)} / v.$pc-max-width);
+		font-size: calc(100vw * v.$base-font-size / v.$pc-max-width);
 	}
 }
 

@@ -1,10 +1,12 @@
 :root {
-	--base-font-size: 16; // remの計算を行う際の基本のフォントサイズ
 	--duration: 0.6s; // 基本的なアニメーション速度
-	
+
 	--black: 0 0 0;
 	--gray: 204 204 204; // #ccc
 }
+
+// ベースのフォントサイズ
+$base-font-size: 16;
 
 // SPの左右の余白
 $sp-gap: 15;

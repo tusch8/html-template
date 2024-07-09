@@ -1,14 +1,9 @@
 @use "./mixin" as m;
 @use "./variable" as v;
 
-// SASS変数をCSS変数に変換
-@function conv($value) {
-  @return var(--#{$value});
-}
-
 // rem計算
 @function r($px) {
-	@return calc($px * 1rem / #{conv(base-font-size)});
+	@return calc($px * 1rem / v.$base-font-size);
 }
 
 // vw計算(SP)
